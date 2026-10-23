@@ -1,0 +1,51 @@
+# Archivos de credenciales o configuración privada (todas las carpetas)
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+*.local
+*.secret
+*.secrets
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Bases exportadas, backups y datos particulares
+*.sql.gz
+*.sql.zip
+*.dump
+*.bak
+*.backup
+*.sqlite
+*.db
+backups/
+backups/**
+exports/
+exports/**
+**/backups/
+**/exports/
+
+# Java / Maven / Eclipse
+**/target/
+**/.settings/
+**/.classpath
+**/.project
+**/*.class
+**/hs_err_pid*
+
+# React / Vite / herramientas
+**/node_modules/
+**/dist/
+**/.vite/
+**/coverage/
+**/*.tsbuildinfo
+
+# Editores y sistema
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
