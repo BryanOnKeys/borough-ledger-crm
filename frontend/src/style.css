@@ -87,3 +87,39 @@
 .demo-postit-action:hover{background:#315449;color:#fff}
 .demo-postit-action:focus-visible{outline:2px solid #315449;outline-offset:3px}
 @media(max-width:610px){.demo-postit{transform:none;margin:21px 0 0;padding:16px}.demo-postit-credentials{grid-template-columns:72px minmax(0,1fr)}}
+
+
+/* Marco botánico editorial de la pantalla de acceso.
+   Ilustraciones SVG originales, sin dependencias, animaciones pesadas ni bloqueo de controles. */
+.login-page{isolation:isolate;overflow:hidden}
+.login-ivy{position:absolute;z-index:0;top:50%;width:clamp(345px,29.4vw,470px);height:clamp(675px,92vh,950px);transform:translateY(-50%);background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;user-select:none;opacity:.92;will-change:auto}
+.login-ivy-left{left:calc(50% - 720px);background-image:url('./assets/ivy-left.svg')}
+.login-ivy-right{left:calc(50% + 270px);background-image:url('./assets/ivy-right.svg')}
+.login-page .login-card{z-index:1}
+.login-page .login-topline,.login-page .login-footer{z-index:2}
+@media (min-width:1450px) {
+  .login-ivy-left{left:calc(50% - 725px)}
+  .login-ivy-right{left:calc(50% + 270px)}
+}
+@media (max-width:1100px) {
+  .login-ivy{width:360px;height:770px;opacity:.65}
+  .login-ivy-left{left:calc(50% - 610px)}
+  .login-ivy-right{left:calc(50% + 235px)}
+}
+@media (max-width:710px) {
+  .login-ivy{width:245px;height:485px;opacity:.38;top:auto;transform:none}
+  .login-ivy-left{top:-55px;left:-145px}
+  .login-ivy-right{right:-140px;left:auto;bottom:-90px}
+  .login-page .login-card{box-shadow:0 18px 60px rgba(47,49,39,.13)}
+}
+@media (prefers-reduced-motion:no-preference) {
+  .login-ivy{animation:ivy-appear 1.4s ease-out both}
+  .login-ivy-right{animation-delay:.16s}
+}
+@keyframes ivy-appear {from{opacity:0}to{opacity:.92}}
+@media (max-width:1100px) and (prefers-reduced-motion:no-preference) {
+  @keyframes ivy-appear {from{opacity:0}to{opacity:.65}}
+}
+@media (max-width:710px) and (prefers-reduced-motion:no-preference) {
+  @keyframes ivy-appear {from{opacity:0}to{opacity:.38}}
+}
