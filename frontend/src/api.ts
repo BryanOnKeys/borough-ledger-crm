@@ -31,6 +31,7 @@ async function perform<T>(path: string, method='GET', body?: unknown, asBlob=fal
   await ensureCsrf(true);return perform<T>(path,method,body,asBlob,false)
  }
  if(!response.ok){
+  if(path==='/auth/login' && response.status===401)throw new ApiError('Correo o contraseña incorrectos. Verifica que la cuenta de evaluación exista en Usuarios.',401)
   let data:Problem={};try{data=await response.json() as Problem}catch{/* respuesta no JSON */}
   const friendly:Record<number,string>={400:'Revisa los campos del formulario.',401:'La sesión expiró. Vuelve a iniciar sesión.',403:'No tienes permisos para realizar esta operación.',404:'No se encontró el registro.',409:'Otro cambio impide guardar. Actualiza los datos.',422:'La operación no cumple las reglas comerciales.',429:'Demasiados intentos. Intenta más tarde.'}
   const fromFields=data.errors?.map(x=>`${x.field}: ${x.message}`).join(' · ')
