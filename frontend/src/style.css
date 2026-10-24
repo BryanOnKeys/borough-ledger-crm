@@ -68,3 +68,6 @@
     font-size: .72em;
   }
 }
+
+/* El acceso no se bloquea mientras se reactiva el backend gratuito. */
+.login-status{font-size:12px;line-height:1.6;color:#6b655a;border-left:2px solid #b4a68a;padding:8px 10px;margin:12px 0 16px;background:rgba(180,166,138,.08)}
