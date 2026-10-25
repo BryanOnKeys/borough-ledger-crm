@@ -13,12 +13,9 @@ jobs:
           java-version: '25'
           cache: maven
           cache-dependency-path: backend/pom.xml
-      - name: Pruebas unitarias
+      - name: Pruebas unitarias y migraciones reales contra MySQL 8.4 (Testcontainers)
         working-directory: backend
-        run: mvn -B clean test
-      - name: Empaquetar backend
-        working-directory: backend
-        run: mvn -B -DskipTests package
+        run: mvn -B clean verify
   frontend:
     runs-on: ubuntu-latest
     steps:
