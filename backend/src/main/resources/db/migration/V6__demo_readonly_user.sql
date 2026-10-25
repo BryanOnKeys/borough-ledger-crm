@@ -25,4 +25,5 @@ WHERE admin.email = 'admin@local.test'
          AND c.archived_at IS NULL
          AND c.email LIKE '%.example') = 20
 LIMIT 1
-ON DUPLICATE KEY UPDATE email = email;
+-- Un valor literal evita la referencia ambigua email=email cuando SELECT y destino usan app_users.
+ON DUPLICATE KEY UPDATE email = 'demo@local.test';

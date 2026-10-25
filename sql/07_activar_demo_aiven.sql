@@ -27,7 +27,8 @@ WHERE a.email = 'admin@local.test'
          AND c.archived_at IS NULL
          AND c.email LIKE '%.example') = 20
 LIMIT 1
-ON DUPLICATE KEY UPDATE email = email;
+-- Valor literal: no hay referencia ambigua al correo al resolver una clave duplicada.
+ON DUPLICATE KEY UPDATE email = 'demo@local.test';
 
 -- Confirma que se creó una cuenta activa, con rol VIEWER y los datos de prueba:
 SELECT u.email, u.display_name, u.role, u.enabled,
